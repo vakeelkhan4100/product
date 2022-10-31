@@ -1,5 +1,6 @@
 import multer from "multer";
 import path from "path";
+console.log("image----")
 const imageStorage = multer.diskStorage({
   destination: 'images',
   filename: (req, file, cb) => {

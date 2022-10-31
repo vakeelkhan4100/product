@@ -1,4 +1,4 @@
-import review_rating from "../moduls/review.rating.modul.js";
+import review_rating from "../models/review.rating.model.js";
 export const create = async (req, res) => {
     try {
         req.body.productId = req.body.product_id

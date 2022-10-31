@@ -1,13 +1,13 @@
 import jwt from "jsonwebtoken"
-import yoyo from "../moduls/category.modul.js"
+ import cetUser from "../models/cetegory.model.js"
 export const create = async (req, res) => {
     try {
-        const exits = await yoyo.findOne({ name: req.body.name })
+        const exits = await  cetUser.findOne({ name: req.body.name })
         if (exits) {
             res.send("name is alerdy exits")
         }
         else {
-            var a = await yoyo.create(req.body)
+            var a = await cetUser.create(req.body)
             a.token = await jwt.sign({ time: Date(), userId: a.id }, "jamana")
             res.send({
                 status: true,
@@ -30,7 +30,7 @@ export const create = async (req, res) => {
 }
 export const getall = async (req, res) => {
     try {
-        const haha = await yoyo.find({ status: "inactive" })
+        const haha = await  cetUser.find({ status: "Active" })
         if (haha) {
             res.send({
                 status: true,
@@ -55,7 +55,7 @@ export const getall = async (req, res) => {
 }
 export const update = async (req, res) => {
     try {
-        const lol = await yoyo.findByIdAndUpdate({ _id: req.body.id }, req.body)
+        const lol = await cetUser.findByIdAndUpdate({ _id: req.body.id }, req.body)
         if (lol) {
             res.send({
                 status: true,
@@ -82,7 +82,7 @@ export const update = async (req, res) => {
 }
 export const remove = async (req, res) => {
     try {
-        const fun = await yoyo.findByIdAndDelete({ _id: req.body.id })
+        const fun = await cetUser.findByIdAndDelete({ _id: req.body.id })
         if (fun) {
             res.send({
                 status: true,

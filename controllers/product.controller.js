@@ -1,7 +1,7 @@
-import product from "../moduls/product.modul.js"
-import ProductImage from "../moduls/product_image.modul.js"
+import product from "../models/product.model.js"
+import ProductImage from "../models/product_image.model.js"
 export const create = async (req, res) => {
-    // try {
+     try {
         const creatpro = await product.create(req.body)
         // console.log("data-----",creatpro)
         if (creatpro) {
@@ -23,11 +23,11 @@ export const create = async (req, res) => {
             });
         }
         res.send("asdas")
-    // } catch (error) {
-    //     res.send({
-    //         status: false,
-    //         msg: "something wrong with request .",
-    //         data: error
-    //     })
-    // }
+    } catch (error) {
+        res.send({
+            status: false,
+            msg: "something wrong with request .",
+            data: error
+        })
+    }
 }

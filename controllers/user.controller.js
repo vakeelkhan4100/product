@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import User from "../moduls/user.modul.js"
+import User from "../models/user.model.js"
 export const signup = async (req, res) => {
    try {
       const IsEmailExist = await User.findOne({ email: req.body.email })
-      const IsMobileExist = await User.findOne({ mobile: req.body.mobile })
+      const IsnumberExist = await User.findOne({ number: req.body.number })
       if (IsEmailExist) {
          res.send({
             status: false,
@@ -12,7 +12,7 @@ export const signup = async (req, res) => {
             data: {}
          });
          return;
-      } else if (IsMobileExist) {
+      } else if (IsnumberExist) {
          res.send({
             status: false,
             msg: "Mobile already exist.",

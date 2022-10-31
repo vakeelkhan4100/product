@@ -1,4 +1,4 @@
-import row from "../moduls/sub_category.js";
+import row from "../models/sub_cate.model.js";
 export const create = async (req, res) => {
     try {
         const data = await row.findOne({ name: req.body.name })

@@ -12,7 +12,7 @@ app.use(category)
 app.use(sub_cate)
 app.use(product_data)
 app.use(user)
-app.use(reviewrating)
-app.listen(3004, (req, res) => {
+// app.use(reviewrating)
+app.listen(3001, (req, res) => {
     console.log("server is run on 2000 port");
 })
