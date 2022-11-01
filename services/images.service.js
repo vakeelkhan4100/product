@@ -15,7 +15,7 @@ const imageStorage = multer.diskStorage({
 export const imageUpload = multer({
   storage: imageStorage,
   limits: {
-    fileSize: 1000000 * 3 // 1000000 Bytes = 1 MB
+    fileSize: 1000000 * 5 // 1000000 Bytes = 1 MB
   },
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(png|jpg|jpeg|zip)$/)) {

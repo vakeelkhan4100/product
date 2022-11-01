@@ -3,11 +3,7 @@ const prodect = new mongoose.Schema({
     name: {
         type: String,
         required: true
-    },
-    price:{
-    type:Number,
-    required:true
-   },
+    },Z,
     createdBy: {
         type: mongoose.Schema.Types.ObjectId, ref: 'users'
     },
