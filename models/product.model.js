@@ -3,7 +3,7 @@ const prodect = new mongoose.Schema({
     name: {
         type: String,
         required: true
-    },Z,
+    },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId, ref: 'users'
     },
