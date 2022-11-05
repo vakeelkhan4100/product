@@ -1,6 +1,7 @@
-// import jwt from "jsonwebtoken";
-// import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import User from "../models/user.model.js"
+import user from "../models/user.model.js";
 export const signup = async (req, res) => {
    try {
       const IsEmailExist = await User.findOne({ email: req.body.email })
@@ -66,6 +67,33 @@ export const login = async (req, res) => {
          status: false,
          msg: "Email not found",
          data: {}
+      })
+   }
+}
+
+export const resendotp = async (req, res) => {
+   try {
+      var otp = 1234  // Math.floor(1000 + Math.random() * 9000);
+      req.body.otp = otp
+      var update = await user.findByIdAndUpdate({ _id:req.body.id},req.body)
+      if(update){
+         res.send({
+            status:true,
+            msg:"otp send success",
+            data:update
+         })
+      }else{
+         res.send({
+            status:false,
+            msg:"otp send unsuccess",
+            data:{}
+         })
+      }
+   } catch (error) {
+      res.send({
+         status:false,
+         msg:"internal error",
+         data:error
       })
    }
 }

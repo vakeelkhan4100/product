@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
         required: true
     },
     number: {
-        type: String,
+        type:String,
         required: true
     },
     username: {
@@ -27,6 +27,20 @@ const schema = new mongoose.Schema({
     lastname: {
         type: String,
         required: true
+    },
+    email_varified:{
+       type:Boolean,
+       required:false,
+       default:false
+    },
+    number_verified:{
+        type:Boolean,
+        required:false,
+        default:false
+    },
+    otp:{
+        type:Number,
+        required:false
     }
 
 })
