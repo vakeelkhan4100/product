@@ -15,6 +15,6 @@ app.use(sub_cate)
 app.use(product_data)
 app.use(user)
 // app.use(reviewrating)
-app.listen(process.env.PORT||3001, (req, res) => {
+app.listen(process.env.PORT || 3001, (req, res) => {
     console.log("server is run on 2000 port");
 })
