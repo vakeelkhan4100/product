@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
     },
     number: {
         type:String,
-        required: true
+        required: false
     },
     username: {
         type: String,
@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: false
     },
     token: {
         type: String,
@@ -22,11 +22,11 @@ const schema = new mongoose.Schema({
     },
     firstname: {
         type: String,
-        required: true
+        required: false
     },
     lastname: {
         type: String,
-        required: true
+        required: false
     },
     email_varified:{
        type:Boolean,

@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import User from "../models/user.model.js"
 import user from "../models/user.model.js";
+import csv from "csvtojson"
 export const signup = async (req, res) => {
    try {
       const IsEmailExist = await User.findOne({ email: req.body.email })
@@ -70,7 +71,6 @@ export const login = async (req, res) => {
       })
    }
 }
-
 export const resendotp = async (req, res) => {
    try {
       var otp = 1234  // Math.floor(1000 + Math.random() * 9000);
@@ -96,4 +96,9 @@ export const resendotp = async (req, res) => {
          data:error
       })
    }
+}
+export const insertbulkusers =async(req,res)=>{
+   var jsonarray = await csv().fromFile("coaching_users.csv")
+    const data = await User.insertMany(jsonarray)
+    res.send(data)
 }
