@@ -13,5 +13,5 @@ const cotegory = new mongoose.Schema({
     updatedAt: { type: Date, default: Date.now },
 }) 
 
-const cetUser = mongoose.model("cotegiris", cotegory)
+const cetUser = mongoose.model("cotegiry", cotegory)
 export default cetUser
