@@ -1,7 +1,7 @@
 import product from "../models/product.model.js"
 import ProductImage from "../models/product_image.model.js"
 export const create = async (req, res) => {
-     try {
+    //  try {
         const creatpro = await product.create(req.body)
         // console.log("data-----",creatpro)
         if (creatpro) {
@@ -20,14 +20,15 @@ export const create = async (req, res) => {
                 }
                 await ProductImage.create(imagedata)
                 console.log(imagedata)
+                res.send(req.body)
             });
         }
-        res.send("asdas")
-    } catch (error) {
-        res.send({
-            status: false,
-            msg: "something wrong with request .",
-            data: error
-        })
-    }
+        
+    // } catch (error) {
+    //     res.send({
+    //         status: false,
+    //         msg: "something wrong with request .",
+    //         data: error
+    //     })
+    // }
 }

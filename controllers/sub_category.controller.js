@@ -37,7 +37,7 @@ export const create = async (req, res) => {
 }
 export const getall = async (req, res) => {
     try {
-        const data = await row.find({ status: "Active" }).populate("createdBy").populate("cateId")
+         const data = await row.find({ status: "Active" }).//populate("createdBy").populate("cateId")
         console.log(data)
 
         if (data.length > 0) {

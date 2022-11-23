@@ -9,7 +9,9 @@ const prodect = new mongoose.Schema({
     },
     is_popular: {
         type: Boolean,
-        default: 0
+        enum: [true, false],
+        required: false,
+        default: false
     },
     description: {
         type: String,

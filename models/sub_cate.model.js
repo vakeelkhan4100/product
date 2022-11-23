@@ -3,8 +3,9 @@ const sub = new mongoose.Schema({
     name: {
         type: String,
         required: true
-    },
-    u: {
+    
+ },
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "users"
     },
@@ -17,6 +18,8 @@ const sub = new mongoose.Schema({
         enum: ["Active", "deActive"],
         default: "Active"
     },
+    
+
     createAt: { type: Date, default: Date.now },
     updateAt: { type: Date, default: Date.now }
 })
