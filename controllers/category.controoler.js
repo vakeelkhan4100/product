@@ -1,33 +1,33 @@
 import jwt from "jsonwebtoken"
  import cetUser from "../models/cetegory.model.js"
 export const create = async (req, res) => {
-    // try {
+    try {
         const exits = await  cetUser.findOne({ name: req.body.name })
         res.send("he")
-    //     if (exits) {
-    //         res.send("name is alerdy exits")
-    //     }
-    //     else {
-    //         var a = await cetUser.create(req.body)
-    //         a.token = await jwt.sign({ time: Date(), userId: a.id }, "jamana")
-    //         res.send({
-    //             status: true,
-    //             msg: "signup is success",
-    //             data: a
-    //         })
-    //         res.send({
-    //             status: false,
-    //             msg: "signup is not success",
-    //             data: {}
-    //         })
-    //     }
-    // } catch (err) {
-    //     res.send({
-    //         status: false,
-    //         msg: "internal error",
-    //         data: err
-    //     })
-    // }
+        if (exits) {
+            res.send("name is alerdy exits")
+        }
+        else {
+            var a = await cetUser.create(req.body)
+            a.token = await jwt.sign({ time: Date(), userId: a.id }, "jamana")
+            res.send({
+                status: true,
+                msg: "signup is success",
+                data: a
+            })
+            res.send({
+                status: false,
+                msg: "signup is not success",
+                data: {}
+            })
+        }
+    } catch (err) {
+        res.send({
+            status: false,
+            msg: "internal error",
+            data: err
+        })
+    }
 }
 export const getall = async (req, res) => {
     try {
@@ -36,7 +36,7 @@ export const getall = async (req, res) => {
             res.send({
                 status: true,
                 msg: "login is success",
-                data: haha
+                data:haha
             })
         }
         else {
